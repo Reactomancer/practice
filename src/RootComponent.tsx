@@ -10,7 +10,7 @@ const RootComponent:FC = () => {
         <Router>
             <Routes>
                 <Route path={ROUTES.HOMEPAGE_ROUTE} element={<HomePage />} />
-                <Route path="post/:postId" element={<Post />} />
+                <Route path={ROUTES.POST_ROUTE} element={<Post />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </Router>
