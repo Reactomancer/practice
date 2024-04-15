@@ -1,11 +1,19 @@
-import { useAppSelector } from '../store/hooks'
-import { userByIdSelector, userLoadingSelector } from '../store/users/selectors'
 import Loader from './Loader'
 
-export const UserInfo: React.FC = () => {
-    const user = useAppSelector(userByIdSelector)
-    const isUserLoading = useAppSelector(userLoadingSelector)
+interface User {
+    phone: string
+    name: string
+    username: string
+    email: string
+    website: string
+}
 
+interface UserProps {
+    user: User | undefined
+    isUserLoading: boolean
+}
+
+export const UserInfo: React.FC<UserProps> = ({ user, isUserLoading }) => {
     return (
         <>
             {!isUserLoading ? (

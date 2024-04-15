@@ -1,13 +1,23 @@
-import { userByIdSelector } from '../store/users/selectors'
-import { useAppSelector } from '../store/hooks'
-import { loadingSelector, postSelector } from '../store/posts/selectors'
 import Loader from './Loader'
+interface Post {
+    userId: number
+    id: number
+    title: string
+    body: string
+}
+interface User {
+    id: null | number
+    name: string
+    username: string
+    email: string
+}
+interface PostProps {
+    user: User | undefined
+    post: Post | undefined
+    isLoading: boolean
+}
 
-export const PostComponent: React.FC = () => {
-    const post = useAppSelector(postSelector)
-    const isLoading = useAppSelector(loadingSelector)
-    const user = useAppSelector(userByIdSelector)
-
+export const PostComponent: React.FC<PostProps> = ({ post, user, isLoading }) => {
     return (
         <>
             {!isLoading ? (
@@ -21,7 +31,7 @@ export const PostComponent: React.FC = () => {
                     </article>
                 </>
             ) : (
-                <Loader/>
+                <Loader />
             )}
         </>
     )

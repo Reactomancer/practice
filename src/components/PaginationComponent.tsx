@@ -1,10 +1,12 @@
 import Pagination from '@mui/material/Pagination'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { currentPageSelector } from '../store/posts/selectors'
+import { useAppDispatch } from '../store/hooks'
 import { fetchPosts } from '../store/posts/actions'
 
-const PaginationComponent: React.FC = () => {
-    const currentPage = useAppSelector(currentPageSelector)
+interface CurrentPage {
+    currentPage: number | undefined
+}
+
+const PaginationComponent: React.FC<CurrentPage> = ({ currentPage }) => {
     const dispatch = useAppDispatch()
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         dispatch(
@@ -14,7 +16,15 @@ const PaginationComponent: React.FC = () => {
             })
         )
     }
-    return <Pagination className="flex justify-center my-6 items-center" count={5} page={currentPage} color="primary" onChange={handleChange} />
+    return (
+        <Pagination
+            className="flex justify-center my-6 items-center"
+            count={5}
+            page={currentPage} 
+            color="primary"
+            onChange={handleChange}
+        />
+    )
 }
 
 export default PaginationComponent

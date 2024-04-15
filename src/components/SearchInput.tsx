@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { useAppDispatch } from '../store/hooks'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { fetchPostsByText } from '../store/posts/actions'
