@@ -1,11 +1,17 @@
-import { commentsLoadingSelector, commentsSelector } from '../store/comments/selectors'
-import { useAppSelector } from '../store/hooks'
 import Loader from './Loader'
 
-export const Comments: React.FC = () => {
-    const isCommentsLoading = useAppSelector(commentsLoadingSelector)
-    const comments = useAppSelector(commentsSelector)
+interface Comment {
+    id: number
+    name: string
+    email: string
+    body: string
+}
+interface CommentsProps {
+    comments: Comment[] | undefined
+    isCommentsLoading: boolean
+}
 
+export const Comments: React.FC<CommentsProps> = ({ comments, isCommentsLoading }) => {
     return (
         <>
             <h2 className="text-3xl font-bold text-center md:text-left md:ml-8">Комментарии</h2>

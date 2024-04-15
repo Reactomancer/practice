@@ -1,5 +1,5 @@
 import { RootState } from '..'
 
-export const commentsSelector = (state: RootState) => state.commetns.comments
-export const commentsLoadingSelector = (state: RootState) => state.posts.loading
-export const commentsErrorSelector = (state: RootState) => state.posts.error
+export const commentsSelector = (state: RootState) => state.comments.comments
+export const commentsLoadingSelector = (state: RootState) => state.comments.loading
+export const commentsErrorSelector = (state: RootState) => state.comments.error

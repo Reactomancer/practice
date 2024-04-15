@@ -4,7 +4,7 @@ import usersSlice from './users/usersSlice'
 import commentsSlice from './comments/commentsSlice'
 
 export const store = configureStore({
-    reducer: { posts: postsSlice, users: usersSlice, commetns: commentsSlice }
+    reducer: { posts: postsSlice, users: usersSlice, comments: commentsSlice }
 })
 
 export type RootState = ReturnType<typeof store.getState>
